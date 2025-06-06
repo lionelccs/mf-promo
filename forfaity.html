@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tarifs des forfaits</title>
+<style>
+  /* Réutilisation des styles du header et footer du premier fichier */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafc;
+    color: #34495e;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #4a90e2;
+    letter-spacing: 0.05em;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #34495e;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 4px 15px rgba(74,144,226,0.5);
+  }
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #34495e;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .burger.toggle div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.toggle div:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.toggle div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100vh;
+      background: white;
+      flex-direction: column;
+      width: 60%;
+      max-width: 300px;
+      padding-top: 4rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 400;
+    }
+    nav ul.active {
+      transform: translateX(0);
+    }
+    nav ul li {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .burger {
+      display: flex;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+  }
+  .forfaits {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .forfait {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+  }
+  .forfait:hover {
+    box-shadow: 0 6px 25px rgba(74,144,226,0.3);
+  }
+  .forfait h2 {
+    margin-bottom: 0.7rem;
+    color: #4a90e2;
+  }
+  .prix {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #27ae60;
+  }
+  .btn-payer {
+    margin-top: auto;
+    text-align: center;
+  }
+  .btn-payer a {
+    display: inline-block;
+    background-color: #4a90e2;
+    color: white;
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(74,144,226,0.6);
+    transition: background-color 0.3s ease;
+  }
+  .btn-payer a:hover {
+    background-color: #357abd;
+  }
+  footer {
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🌐 Forfaits</div>
+  <nav>
+    <ul>
+      <li><a href="./index.html.html">Inscription</a></li>
+      <li><a href="./forfaity.html" class="active">Tarifs</a></li>
+      <li><a href="./payement.html">Modes de paiement</a></li>
+    </ul>
+    <div class="burger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>Nos forfaits internet</h1>
+  <section class="forfaits">
+    <article class="forfait">
+      <h2><center>Airtel</center><br>Connexion Illimite/2Mois </h2>
+      <div class="prix">10000 FCFA</div>
+      <p>Idéal pour un usage léger : navigation, mails, réseaux sociaux.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Airtel</center><br>Connexion Illimite/5Mois</h2>
+      <div class="prix">15000 FCFA</div>
+      <p>Pour un usage régulier avec streaming modéré et téléchargement.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Airtel</center><br>Connexion Illimite/12Mois</h2>
+      <div class="prix">25000 FCFA</div>
+      <p>Pour les utilisateurs intensifs et les gamers.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a><br>
+      </div>
+    </article>
+
+    <article class="forfait">
+      <h2><center>Moov</center><br>100Go/2Mois</h2>
+      <div class="prix">10000 FCFA</div>
+      <p>Usage léger, réseaux sociaux et mails.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Moov</center><br>200Go/4mois</h2>
+      <div class="prix">15000 FCFA</div>
+      <p>Streaming et navigation fréquente.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Moov</center><br>Connexion Illimite/12Mois</h2>
+      <div class="prix">25000 FCFA</div>
+      <p>Pour les gros consommateurs de données.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a><br>
+      </div>
+    </article><br>
+
+    <article class="forfait">
+      <h2><center>Liberty</center><br>100Go/2Mois</h2>
+      <div class="prix">10000 FCFA</div>
+      <p>Navigation simple et mails.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Liberty</center><br>Connexion Illimite/5Mois</h2>
+      <div class="prix">15000 FCFA</div>
+      <p>Usage quotidien avec streaming léger.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+    <article class="forfait">
+      <h2><center>Liberty</center><br>Connexion Illimite/12Mois</h2>
+      <div class="prix">25000 FCFA</div>
+      <p>Utilisation intensive pour travail et loisirs.</p>
+      <div class="btn-payer">
+        <a href="./payement.html">Payer ce forfait</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Forfaits Internet - Tous droits réservés
+</footer>
+
+<script>
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('nav ul');
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    burger.classList.toggle('toggle');
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', !expanded);
+  });
+  burger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      burger.click();
+    }
+  });
+</script>
+<!-- Bouton WhatsApp -->
+<a href="https://wa.me/24104204923" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  💬
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    background-color: #128C7E;
+  }
+</style>
+</body>
+</html>
+</html>

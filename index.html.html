@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inscription - Forfaits Internet</title>
+<style>
+  /* ===== GLOBAL ===== */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: #f9fafc;
+    color: #34495e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  /* HEADER */
+  header {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    user-select: none;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #4a90e2;
+    letter-spacing: 0.05em;
+  }
+  nav {
+    position: relative;
+  }
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  ul.nav-links li a {
+    text-decoration: none;
+    color: #34495e;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ul.nav-links li a:hover,
+  ul.nav-links li a.active {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 4px 15px rgba(74,144,226,0.5);
+  }
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #34495e;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .burger.toggle div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.toggle div:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.toggle div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* FORMULAIRE */
+  form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  label {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    padding: 0.7rem 1rem;
+    border: 1.8px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 6px rgba(74,144,226,0.5);
+  }
+  button {
+    margin-top: 1rem;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    background: #4a90e2;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(74,144,226,0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    align-self: center;
+    width: 50%;
+    min-width: 140px;
+  }
+  button:hover {
+    background-color: #357abd;
+    box-shadow: 0 7px 20px rgba(53,122,189,0.7);
+  }
+
+  /* RESPONSIVE MENU */
+  @media (max-width: 768px) {
+    ul.nav-links {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100vh;
+      background: white;
+      flex-direction: column;
+      width: 60%;
+      max-width: 300px;
+      padding-top: 4rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 400;
+    }
+    ul.nav-links.active {
+      transform: translateX(0);
+    }
+    ul.nav-links li {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .burger {
+      display: flex;
+    }
+  }
+
+  /* RESPONSIVE FORM */
+  @media (max-width: 480px) {
+    form {
+      padding: 1.2rem 1rem;
+    }
+    button {
+      width: 70%;
+    }
+  }
+
+  /* FOOTER */
+  footer {
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🌐 Forfaits</div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="./index.html.html" class="active">Inscription</a></li>
+      <li><a href="./forfaity.html">Tarifs</a></li>
+      <li><a href="./payement.html">Modes de paiement</a></li>
+    </ul>
+    <div class="burger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>Formulaire d'inscription</h1>
+  <form action="https://formsubmit.co/mbogningblaise0@gmail.com" method="POST" novalidate>
+    <label for="nom">Nom complet</label>
+    <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
+
+    <label for="tel">Numéro de téléphone</label>
+    <input type="tel" id="tel" name="tel" placeholder="+241 XXX XXX XXX" pattern="[+0-9\s]{9,15}" required />
+
+    <label for="operateur">Opérateur préféré</label>
+    <select id="operateur" name="operateur" required>
+      <option value="" disabled selected>Choisissez un opérateur</option>
+      <option value="airtel">Airtel</option>
+      <option value="moov">Moov</option>
+      <option value="liberty">Liberty</option>
+    </select>
+
+    <label for="forfait">Forfait souhaité</label>
+    <select id="forfait" name="forfait" required>
+      <option value="" disabled selected>Choisissez un forfait</option>
+      <optgroup label="Aritel">
+        <option value="Airtel-1go">Connexion Illimite/2Mois - 10000 FCFA</option>
+        <option value="orange-5go">Connexion Illimite/5Mois - 15000 FCFA</option>
+        <option value="orange-10go">Connexion Illimite/12Mois - 25000 FCFA</option>
+      </optgroup>
+      <optgroup label="Moov">
+        <option value="mtn-1go">100Go/2Mois - 10000 FCFA</option>
+        <option value="mtn-5go">200Go/4mois - 15000 FCFA</option>
+        <option value="mtn-10go">Connexion Illimite/12Mois - 25000 FCFA</option>
+      </optgroup>
+      <optgroup label="Liberty">
+        <option value="camtel-<option value="camtel-1go">100Go/2Mois - 10000 FCFA</option>
+        <option value="camtel-5go">Connexion Illimite/5Mois - 15000 FCFA</option>
+        <option value="camtel-10go">Connexion Illimite/12Mois - 25000 FCFA</option>
+      </optgroup>
+    </select>
+ 
+ <button type="submit">Continuer </button>
+
+
+   
+  </form>
+</main>
+
+<footer>
+  &copy; 2025 Forfaits Internet - Tous droits réservés
+</footer>
+
+<script>
+  // Toggle mobile menu
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    burger.classList.toggle('toggle');
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Accessibility: toggle menu with Enter or Space keys on burger button
+  burger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      burger.click();
+    }
+  });
+</script>
+<script>
+  function redirigerVersTarifs(event) {
+    event.preventDefault(); // Empêche l'envoi réel du formulaire
+    // (tu peux valider les champs ici si tu veux)
+    window.location.href="c:\Users\KDO\Desktop\2\forfaity.html"// Redirige vers la page des forfaits
+  }
+</script>
+<!-- Bouton WhatsApp -->
+<a href="https://wa.me/24104204923" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  💬
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    background-color: #128C7E;
+  }
+</style>
+</body>
+</html>
